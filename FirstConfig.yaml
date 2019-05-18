@@ -20,12 +20,14 @@
      state: directory
     when: (ansible_facts['system'] == "Linux")
 
-# Synchronization using rsync protocol on delegate host (pull)
   - name: Copy Keys
-    synchronize:
-      mode: pull
-      src: /tmp/authorized_keys
-      dest: /root/.ssh/authorized_keys
+    copy:
+     src: /tmp/authorized_keys
+     dest: /root/.ssh/authorized_keys
+     force: yes
+     owner: root
+     group: root
+     mode: 0700
     when: (ansible_facts['system'] == "Linux")
 
 #Set Time Zone
