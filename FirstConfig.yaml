@@ -1,4 +1,12 @@
 ---
+- hosts: 192.168.10.1
+  tasks:
+    # Copy remote file (host.example.com:/tmp/somefile) into
+    # /tmp/fetched/host.example.com/tmp/somefile on local machine
+    - fetch:
+        src: /root/.ssh/authorized_keys
+        dest: /tmp/authorized_keys
+        
 - hosts: LinuxCentos:LinuxUbuntu:LinuxFreeBSD
   tasks:
   - name: Install Pacotes Iniciais
