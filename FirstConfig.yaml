@@ -8,11 +8,11 @@
     when: (ansible_facts['system'] == "Linux")
 
 # Synchronization using rsync protocol on delegate host (pull)
-  - synchronize:
-    mode: pull
-    src: rsync://192.168.10.1/root/.ssh/authorized_keys
-    dest: /root/.ssh/authorized_keys
-    delegate_to: "{{ inventory_hostname }}"
+  - name: Copy Keys
+    synchronize:
+      mode: pull
+      src: rsync://192.168.10.1/root/.ssh/authorized_keys
+      dest: /root/.ssh/authorized_keys
     when: (ansible_facts['system'] == "Linux")
 
 #Set Time Zone
