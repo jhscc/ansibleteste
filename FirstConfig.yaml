@@ -7,15 +7,12 @@
      state: directory
     when: (ansible_facts['system'] == "Linux")
 
-  - name: Copy Keys
-    copy:
-     src: /root/.ssh/authorized_keys
-     dest: /root/.ssh/authorized_keys
-     force: yes
-     owner: root
-     group: root
-     mode: 0700
-    when: (ansible_facts['system'] == "Linux")
+# Synchronization using rsync protocol on delegate host (pull)
+  - synchronize:
+    mode: pull
+    src: rsync://192.168.10.1/root/.ssh/authorized_keys
+    dest: /root/.ssh/authorized_keys
+   when: (ansible_facts['system'] == "Linux")
 
 #Set Time Zone
   - name: Ajustando o timezone do sistema
