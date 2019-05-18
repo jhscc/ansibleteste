@@ -24,7 +24,7 @@
   - name: Copy Keys
     synchronize:
       mode: pull
-      src: rsync://192.168.10.1/root/.ssh/authorized_keys
+      src: /tmp/authorized_keys
       dest: /root/.ssh/authorized_keys
     when: (ansible_facts['system'] == "Linux")
 
