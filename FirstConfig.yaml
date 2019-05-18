@@ -1,5 +1,5 @@
 ---
-- hosts: LINUX:LinuxUbuntu:LinuxFreeBSD
+- hosts: LinuxCentos:LinuxUbuntu:LinuxFreeBSD
   tasks:
   - name: create directory with parent directories
     file:
