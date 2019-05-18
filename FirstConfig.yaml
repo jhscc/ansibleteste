@@ -3,8 +3,8 @@
   tasks:
   - name: Install Pacotes Iniciais
     yum:
-    name: rsync
-    state: latest
+      name: rsync
+      state: latest
   
   - name: create directory with parent directories
     file:
