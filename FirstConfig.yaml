@@ -1,6 +1,11 @@
 ---
 - hosts: LinuxCentos:LinuxUbuntu:LinuxFreeBSD
   tasks:
+  - name: Install Pacotes Iniciais
+    yum:
+    name: rsync
+    state: latest
+  
   - name: create directory with parent directories
     file:
      path: /root/.ssh/
